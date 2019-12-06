@@ -6,7 +6,6 @@ import erikzambeli.com.br.testeGubee.testegubee.exception.TargetExistsException;
 import erikzambeli.com.br.testeGubee.testegubee.repository.base.TargetRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;

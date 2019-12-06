@@ -9,7 +9,6 @@ import erikzambeli.com.br.testeGubee.testegubee.entity.base.Technology;
 import erikzambeli.com.br.testeGubee.testegubee.exception.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;

@@ -8,7 +8,6 @@ import erikzambeli.com.br.testeGubee.testegubee.exception.ProductExistsException
 import erikzambeli.com.br.testeGubee.testegubee.repository.base.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.HashSet;

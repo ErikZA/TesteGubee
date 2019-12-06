@@ -4,7 +4,6 @@ import erikzambeli.com.br.testeGubee.testegubee.entity.base.Target;
 import erikzambeli.com.br.testeGubee.testegubee.exception.AnyPersistenceException;
 import erikzambeli.com.br.testeGubee.testegubee.exception.TargetExistsException;
 import erikzambeli.com.br.testeGubee.testegubee.servie.base.TargetService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

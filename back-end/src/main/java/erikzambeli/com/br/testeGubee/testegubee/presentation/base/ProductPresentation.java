@@ -5,7 +5,6 @@ import erikzambeli.com.br.testeGubee.testegubee.exception.AnyPersistenceExceptio
 import erikzambeli.com.br.testeGubee.testegubee.exception.ProductExistsException;
 import erikzambeli.com.br.testeGubee.testegubee.servie.base.BuildBaseService;
 import erikzambeli.com.br.testeGubee.testegubee.servie.base.ProductService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
