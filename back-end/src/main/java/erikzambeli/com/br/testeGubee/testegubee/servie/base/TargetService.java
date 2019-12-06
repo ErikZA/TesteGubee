@@ -5,12 +5,13 @@ import erikzambeli.com.br.testeGubee.testegubee.exception.AnyPersistenceExceptio
 import erikzambeli.com.br.testeGubee.testegubee.exception.TargetExistsException;
 import erikzambeli.com.br.testeGubee.testegubee.repository.base.TargetRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class TargetService implements CRUDService<Target>{
     private final TargetRepository targetRepository;

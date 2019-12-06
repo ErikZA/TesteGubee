@@ -7,6 +7,7 @@ import erikzambeli.com.br.testeGubee.testegubee.exception.AnyPersistenceExceptio
 import erikzambeli.com.br.testeGubee.testegubee.exception.ProductExistsException;
 import erikzambeli.com.br.testeGubee.testegubee.repository.base.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -14,7 +15,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class ProductService implements CRUDService<Product> {
 

@@ -5,12 +5,13 @@ import erikzambeli.com.br.testeGubee.testegubee.exception.AnyPersistenceExceptio
 import erikzambeli.com.br.testeGubee.testegubee.exception.TechnologyExistsException;
 import erikzambeli.com.br.testeGubee.testegubee.repository.base.TechnologyRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class TechnologyService implements CRUDService<Technology>{
 

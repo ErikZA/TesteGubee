@@ -1,23 +1,26 @@
-package erikzambeli.com.br.testeGubee.testegubee.presentation;
+package erikzambeli.com.br.testeGubee.testegubee.presentation.base;
 
 import erikzambeli.com.br.testeGubee.testegubee.entity.base.Product;
 import erikzambeli.com.br.testeGubee.testegubee.exception.AnyPersistenceException;
 import erikzambeli.com.br.testeGubee.testegubee.exception.ProductExistsException;
-import erikzambeli.com.br.testeGubee.testegubee.exception.URLJsonNotFound;
-import erikzambeli.com.br.testeGubee.testegubee.servie.base.BuildBase;
+import erikzambeli.com.br.testeGubee.testegubee.servie.base.BuildBaseService;
 import erikzambeli.com.br.testeGubee.testegubee.servie.base.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Service
 @RestController
-@RequiredArgsConstructor
 public class ProductPresentation implements CRUDController<Product> {
 
+    @Autowired
     private ProductService productService;
-    private BuildBase buildBase;
+    @Autowired
+    private BuildBaseService buildBase;
 
     @GetMapping("/service/product/{id}")
     @Override
@@ -42,11 +45,5 @@ public class ProductPresentation implements CRUDController<Product> {
     public ResponseEntity<Product> create(@RequestBody Product entity) throws AnyPersistenceException, ProductExistsException {
         productService.create(entity);
         return ResponseEntity.status(201).body(entity);
-    }
-
-    @GetMapping("/service")
-    public ResponseEntity.BodyBuilder readAllJson() throws URLJsonNotFound {
-        buildBase.buildBaseJson();
-        return ResponseEntity.status(201);
     }
 }

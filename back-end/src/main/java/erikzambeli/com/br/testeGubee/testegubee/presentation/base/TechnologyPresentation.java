@@ -1,19 +1,22 @@
-package erikzambeli.com.br.testeGubee.testegubee.presentation;
+package erikzambeli.com.br.testeGubee.testegubee.presentation.base;
 
 import erikzambeli.com.br.testeGubee.testegubee.entity.base.Technology;
 import erikzambeli.com.br.testeGubee.testegubee.exception.AnyPersistenceException;
 import erikzambeli.com.br.testeGubee.testegubee.exception.TechnologyExistsException;
 import erikzambeli.com.br.testeGubee.testegubee.servie.base.TechnologyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Service
 @RestController
-@RequiredArgsConstructor
 public class TechnologyPresentation implements CRUDController<Technology> {
 
+    @Autowired
     private TechnologyService technologyService;
 
     @GetMapping("/service/technology/{id}")

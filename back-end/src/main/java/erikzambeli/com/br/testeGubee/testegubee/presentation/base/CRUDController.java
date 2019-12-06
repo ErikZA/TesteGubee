@@ -1,4 +1,4 @@
-package erikzambeli.com.br.testeGubee.testegubee.presentation;
+package erikzambeli.com.br.testeGubee.testegubee.presentation.base;
 
 import erikzambeli.com.br.testeGubee.testegubee.exception.AnyPersistenceException;
 import erikzambeli.com.br.testeGubee.testegubee.exception.ProductExistsException;

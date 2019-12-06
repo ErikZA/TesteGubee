@@ -8,6 +8,7 @@ import erikzambeli.com.br.testeGubee.testegubee.entity.base.Target;
 import erikzambeli.com.br.testeGubee.testegubee.entity.base.Technology;
 import erikzambeli.com.br.testeGubee.testegubee.exception.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -16,9 +17,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 
-@Service
+@Component
 @RequiredArgsConstructor
-public class BuildBase {
+public class BuildBaseService {
 
     private final ProductService productService;
     private final TechnologyService technologyService;
@@ -98,5 +99,10 @@ public class BuildBase {
                 e.getMessage();
             }
         }
+    }
+
+    @Override
+    public String toString(){
+        return "{'msg':'build base sucessful'}";
     }
 }
