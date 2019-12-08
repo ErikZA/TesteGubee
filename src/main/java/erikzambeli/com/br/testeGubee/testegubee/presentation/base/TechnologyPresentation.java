@@ -18,13 +18,13 @@ public class TechnologyPresentation implements CRUDController<Technology> {
     @Autowired
     private TechnologyService technologyService;
 
-    @GetMapping("/service/technology/{id}")
+    @GetMapping("/service/technologyperid/{id}")
     @Override
     public ResponseEntity<Technology> readById(@PathVariable Long id) {
-        return ResponseEntity.ok(technologyService.readById(id));
+        return ResponseEntity.ok(technologyService.readById( id));
     }
 
-    @GetMapping("/service/technology/{nome}")
+    @GetMapping("/service/technologypername/{name}")
     @Override
     public ResponseEntity<Technology> readByName(@PathVariable String name) {
         return ResponseEntity.ok(technologyService.readByName(name));
@@ -36,7 +36,7 @@ public class TechnologyPresentation implements CRUDController<Technology> {
         return ResponseEntity.ok(technologyService.readAll());
     }
 
-    @PostMapping("/service/technology")
+    @PostMapping("/service/new/technology")
     @Override
     public ResponseEntity<Technology> create(@RequestBody Technology entity) throws AnyPersistenceException, TechnologyExistsException{
         technologyService.create(entity);

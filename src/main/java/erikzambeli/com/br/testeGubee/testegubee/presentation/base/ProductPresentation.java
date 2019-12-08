@@ -19,15 +19,26 @@ public class ProductPresentation implements CRUDController<Product> {
     @Autowired
     private ProductService productService;
     @Autowired
-    private BuildBaseService buildBase;
+    private BuildBaseService buildBaseService;
 
-    @GetMapping("/service/product/{id}")
+    @GetMapping("/service")
+    public ResponseEntity<List<Product>> builderBase() {
+        try {
+            buildBaseService.buildBaseJson();
+            return ResponseEntity.ok(productService.readAll());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(productService.readAll());
+        }
+    }
+
+    @GetMapping("/service/productperid/{id}")
     @Override
     public ResponseEntity<Product> readById(@PathVariable Long id) {
         return ResponseEntity.ok(productService.readById(id));
     }
 
-    @GetMapping("/service/product/{nome}")
+    @GetMapping("/service/productpername/{name}")
     @Override
     public ResponseEntity<Product> readByName(@PathVariable String name) {
         return ResponseEntity.ok(productService.readByName(name));
@@ -39,7 +50,7 @@ public class ProductPresentation implements CRUDController<Product> {
         return ResponseEntity.ok(productService.readAll());
     }
 
-    @PostMapping("/service/product")
+    @PostMapping("/service/new/product")
     @Override
     public ResponseEntity<Product> create(@RequestBody Product entity) throws AnyPersistenceException, ProductExistsException {
         productService.create(entity);

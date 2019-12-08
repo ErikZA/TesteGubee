@@ -18,13 +18,13 @@ public class TargetPresentation implements CRUDController<Target>{
     @Autowired
     private TargetService targetService;
 
-    @GetMapping("/service/target/{id}")
+    @GetMapping("/service/targetperid/{id}")
     @Override
-    public ResponseEntity<Target> readById(@PathVariable Long id) {
-        return ResponseEntity.ok(targetService.readById(id));
+    public ResponseEntity<Target> readById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(targetService.readById( id));
     }
 
-    @GetMapping("/service/target/{nome}")
+    @GetMapping("/service/targetpername/{name}")
     @Override
     public ResponseEntity<Target> readByName(@PathVariable String name) {
         return ResponseEntity.ok(targetService.readByName(name));
@@ -36,7 +36,7 @@ public class TargetPresentation implements CRUDController<Target>{
         return ResponseEntity.ok(targetService.readAll());
     }
 
-    @PostMapping("/service/target")
+    @PostMapping("/service/new/target")
     @Override
     public ResponseEntity<Target> create(@RequestBody Target entity) throws AnyPersistenceException, TargetExistsException {
         targetService.create(entity);
