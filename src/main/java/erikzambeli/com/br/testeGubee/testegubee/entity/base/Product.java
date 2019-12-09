@@ -1,6 +1,7 @@
 package erikzambeli.com.br.testeGubee.testegubee.entity.base;
 
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,9 +20,11 @@ public class Product extends Person implements Serializable {
     private boolean active;
     private double value;
 
+    @SerializedName("targets")
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Target> targets;
 
+    @SerializedName("technologies")
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Technology> technologies;
 
