@@ -19,14 +19,16 @@ public class ProductController {
     @GetMapping("/service")
     public String inicial(Model data) throws JsonSyntaxException, UnirestException {
         Gson gson = new Gson();
-        Object arrayProductModel[] = gson.fromJson(
+        ProductModel arrayProductModel[] = gson.fromJson(
                         Unirest.get("https://back-end-gubee.herokuapp.com/service")
                                 .basicAuth("admin","admin")
                                 .asJson()
                                 .getBody()
-                                .toString(), Object[].class
+                                .toString(), ProductModel[].class
         );
-        Arrays.stream(arrayProductModel).forEach(productModel -> System.out.println(productModel.toString()));
+
+        Arrays.stream(arrayProductModel).forEach(productModel -> System.out.println(productModel.getName()));
+        Arrays.stream(arrayProductModel).forEach(productModel -> System.out.println(productModel.getDescription()));
         data.addAttribute("products", arrayProductModel);
 
 
