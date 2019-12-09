@@ -19,9 +19,11 @@ public class Product extends Person implements Serializable {
     private boolean active;
     private double value;
 
+    @SerializedName("targets")
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Target> targets;
 
+    @SerializedName("technologies")
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Technology> technologies;
 
