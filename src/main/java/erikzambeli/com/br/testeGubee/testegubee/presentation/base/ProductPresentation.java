@@ -1,10 +1,15 @@
 package erikzambeli.com.br.testeGubee.testegubee.presentation.base;
 
 import erikzambeli.com.br.testeGubee.testegubee.entity.base.Product;
+import erikzambeli.com.br.testeGubee.testegubee.entity.base.Target;
+import erikzambeli.com.br.testeGubee.testegubee.entity.base.Technology;
 import erikzambeli.com.br.testeGubee.testegubee.exception.AnyPersistenceException;
 import erikzambeli.com.br.testeGubee.testegubee.exception.ProductExistsException;
 import erikzambeli.com.br.testeGubee.testegubee.servie.base.BuildBaseService;
 import erikzambeli.com.br.testeGubee.testegubee.servie.base.ProductService;
+import erikzambeli.com.br.testeGubee.testegubee.servie.base.TargetService;
+import erikzambeli.com.br.testeGubee.testegubee.servie.base.TechnologyService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -42,6 +47,16 @@ public class ProductPresentation implements CRUDController<Product> {
     @Override
     public ResponseEntity<Product> readByName(@PathVariable String name) {
         return ResponseEntity.ok(productService.readByName(name));
+    }
+
+    @GetMapping("/service/productpernametechnology/{name}")
+    public ResponseEntity<List<Product>> readByNameTechnology(@PathVariable String name) {
+        return ResponseEntity.ok(productService.readByNameTechnology(name));
+    }
+
+    @GetMapping("/service/productpernametarget/{name}")
+    public ResponseEntity<List<Product>> readByNameTarget(@PathVariable String name) {
+        return ResponseEntity.ok(productService.readByNameTarget(name));
     }
 
     @GetMapping("/service/products")

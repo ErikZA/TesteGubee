@@ -32,6 +32,16 @@ public class ProductService implements CRUDService<Product> {
         return productRepository.findByName(name);
     }
 
+
+    public List<Product> readByNameTechnology(String name) {
+        return productRepository.findAllByTechnologies(technologyService.readByName(name));
+    }
+
+
+    public List<Product> readByNameTarget(String name) {
+        return productRepository.findAllByTargets(targetService.readByName(name));
+    }
+
     @Override
     public List<Product> readAll() {
         return productRepository.findAll();
