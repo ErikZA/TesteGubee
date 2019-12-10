@@ -25,30 +25,43 @@
         <h1>Busca de Produtos</h1>
         <p>Essa página é responsável por listar os produtos. </p>
     </div>
-        <form>
-            <label for="inputText">BUSCAR POR:</label>
-            <div class="form-row align-items-center">
-                <div class="col-auto">
-                    <select id="inputState" class="form-control">
-                        <option id="1" selected>Produto</option>
-                        <option id="2">Tecnologia</option>
-                        <option id="3">Mercado</option>
-                    </select>
-                </div>
-                <div class="col-auto">
-                    <input type="text" class="form-control " id="inputWord">
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
-                </div>
+    <form action="/service/products_search" method="get">
+        <label for="inputText">BUSCAR POR:</label>
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <select id="inputName1" name="inputName1" class="form-control">
+                    <option id="1" selected>Produto</option>
+                    <option id="2">Technologia</option>
+                    <option id="3">Mercado</option>
+                </select>
             </div>
-        </form>
+            <div class="col-auto">
+                <input type="text" class="form-control" name="name" id="inputSearch1">
+            </div>
+        </div>
+        <label for="inputText">BUSCAR POR:</label>
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <select id="inputName2" class="form-control">
+                    <option id="1" selected>Technologia</option>
+                    <option id="2">Produto</option>
+                    <option id="3">Mercado</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <input type="text" class="form-control" name="name" id="inputSearch2">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+    </form>
 
     <div>
         <p></p>
     </div>
 
-       <div class="row">
+    <div class="row">
         <div class="col">
             <table class="table table-striped table-hover">
                 <thead class="thead-dark">
@@ -60,23 +73,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <#list products as product>
-                    <tr>
-                        <td>${product.name}</td>
-                        <td>${product.description}</td>
-                        <td><ul>
-                        <#list product.technologies as technology>
-                        <li>${technology.name}</li>
-                            </#list>
-                            </ul></td>
-                        <td><ul>
-                        <#list product.targets as target>
-                            <li>${target.name}</li>
-                        </#list>
-                        </ul></td>
-
-                    </tr>
-                </#list>
                 </tbody>
             </table>
         </div>

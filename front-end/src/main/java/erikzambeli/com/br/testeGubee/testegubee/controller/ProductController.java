@@ -10,28 +10,35 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class ProductController {
 
-
     @GetMapping("/service")
-    public String inicial(Model data) throws JsonSyntaxException, UnirestException {
+    public String loadProduct(Model data) throws JsonSyntaxException, UnirestException {
+                Unirest.get("https://back-end-gubee.herokuapp.com/service")
+                        .basicAuth("admin","admin")
+                        .asJson()
+                        .getBody()
+                        .toString();
+
+            return "product-view-search";
+    }
+
+
+    @GetMapping("/service/products_search")
+    public String loadResultProducts(ProductModel productModel) throws JsonSyntaxException, UnirestException {
         Gson gson = new Gson();
-        ProductModel arrayProductModel[] = gson.fromJson(
-                        Unirest.get("https://back-end-gubee.herokuapp.com/service")
-                                .basicAuth("admin","admin")
-                                .asJson()
-                                .getBody()
-                                .toString(), ProductModel[].class
+        Object arrayProductModel[] = gson.fromJson(
+                Unirest.get("https://back-end-gubee.herokuapp.com/service")
+                        .basicAuth("admin","admin")
+                        .asJson()
+                        .getBody()
+                        .toString(), Object[].class
         );
-
-        Arrays.stream(arrayProductModel).forEach(productModel -> System.out.println(productModel.getName()));
-        Arrays.stream(arrayProductModel).forEach(productModel -> System.out.println(productModel.getDescription()));
-        data.addAttribute("products", arrayProductModel);
-
-
         return "products-view";
     }
 }
