@@ -6,14 +6,20 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.filter.OncePerRequestFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest()
-                .authenticated().and().httpBasic();
+        http.httpBasic().and().csrf().disable()
+                .authorizeRequests().antMatchers("/service", "/service/products","/service/productpername/{name}",
+                "/service/productpernametechnology/{name}","/service/productpernametarget/{name}").permitAll()
+                .anyRequest()
+                .authenticated();
     }
 
     @Autowired
