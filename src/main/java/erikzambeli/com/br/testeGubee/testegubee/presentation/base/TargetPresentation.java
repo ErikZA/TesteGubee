@@ -13,6 +13,8 @@ import java.util.List;
 
 @Service
 @RestController
+@RequestMapping(produces = "application/json;charset=UTF-8")
+@CrossOrigin(origins= "*")
 public class TargetPresentation implements CRUDController<Target>{
 
     @Autowired

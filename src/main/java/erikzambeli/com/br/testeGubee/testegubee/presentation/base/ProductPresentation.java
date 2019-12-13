@@ -11,6 +11,7 @@ import erikzambeli.com.br.testeGubee.testegubee.servie.base.TargetService;
 import erikzambeli.com.br.testeGubee.testegubee.servie.base.TechnologyService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,8 @@ import java.util.List;
 
 @Service
 @RestController
+@RequestMapping(produces = "application/json;charset=UTF-8")
+@CrossOrigin(origins= "*")
 public class ProductPresentation implements CRUDController<Product> {
 
     @Autowired
@@ -30,7 +33,7 @@ public class ProductPresentation implements CRUDController<Product> {
     public ResponseEntity<List<Product>> builderBase() {
         try {
             buildBaseService.buildBaseJson();
-            return ResponseEntity.ok(productService.readAll());
+            return ResponseEntity.status(201).body(productService.readAll());
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.ok(productService.readAll());
