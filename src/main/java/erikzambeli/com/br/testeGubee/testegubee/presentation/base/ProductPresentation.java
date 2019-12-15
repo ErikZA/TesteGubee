@@ -48,7 +48,7 @@ public class ProductPresentation implements CRUDController<Product> {
 
     @GetMapping("/service/productpername/{name}")
     @Override
-    public ResponseEntity<Product> readByName(@PathVariable String name) {
+    public ResponseEntity<List<Product>> readByName(@PathVariable String name) {
         return ResponseEntity.ok(productService.readByName(name));
     }
 
