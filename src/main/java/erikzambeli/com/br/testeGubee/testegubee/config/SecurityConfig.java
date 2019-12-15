@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().and().csrf().disable()
                 .authorizeRequests().antMatchers("/service", "/service/products","/service/productpername/{name}",
-                "/service/productpernametechnology/{name}","/service/productpernametarget/{name}").permitAll()
+                "/service/productpernametechnology/{name}","/service/productpernametarget/{name}","/favicon.ico").permitAll()
                 .anyRequest()
                 .authenticated();
     }
